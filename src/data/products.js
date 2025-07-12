@@ -1,0 +1,603 @@
+const products = [
+  // Original products (1-4)
+  {
+    id: "1",
+    name: "Nike Air Force 1 '07",
+    gender: "men",
+    section: "shoes",
+    subcategory: "lifestyle",
+    price: 115,
+    sizes: ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10"],
+    color: ["black", "white"],
+    image: "/assets/shoes/nike-air-force-1/nike-air-force-1.avif",
+    images: [
+      "/assets/shoes/nike-air-force-1/nike-air-force-single-2.avif",
+      "/assets/shoes/nike-air-force-1/nike-air-force-single-3.avif",
+      "/assets/shoes/nike-air-force-1/nike-air-force-single-4.avif",
+      "/assets/shoes/nike-air-force-1/nike-air-force-single-5.avif",
+      "/assets/shoes/nike-air-force-1/nike-air-force-single-6.avif",
+      "/assets/shoes/nike-air-force-1/nike-air-force-single-7.avif",
+      "/assets/shoes/nike-air-force-1/nike-air-force-single-8.avif",
+      "/assets/shoes/nike-air-force-1/nike-air-force-single-9.avif",
+    ],
+    description:
+      "Comfortable, durable and timeless—it's number one for a reason. The classic '80s construction pairs smooth leather with bold details for style that tracks whether you're on court or on the go.",
+  },
+  {
+    id: "2",
+    name: "Nike Air Max 95 OG",
+    gender: "men",
+    section: "shoes",
+    subcategory: "basketball",
+    price: 190,
+    sizes: ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10"],
+    color: ["white", "black", "pink", "gray"],
+    image: "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og.avif",
+    images: [
+      "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og-single-2.avif",
+      "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og-single-9.avif",
+      "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og-single-3.avif",
+      "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og-single-4.avif",
+      "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og-single-5.avif",
+      "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og-single-6.avif",
+      "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og-single-7.avif",
+      "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og-single-8.avif",
+      "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og-single-9.avif",
+      "/assets/shoes/nike-air-max-95-og/nike-air-max-95-og-single10.avif",
+    ],
+    description:
+      "Taking inspiration from the human body and '90s track aesthetics, the Air Max 95 mixes unbelievable comfort with fast-paced style. The wavy side panels add natural flow to any outfit while visible cushioning in the heel and forefoot delivers performance comfort.",
+  },
+  {
+    id: "3",
+    name: "Nike Dunk",
+    gender: "men",
+    section: "shoes",
+    subcategory: "lifestyle",
+    price: 120,
+    sizes: ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10"],
+    color: [
+      "black",
+      "white",
+      "pink",
+      "gray",
+      "brown",
+      "purple",
+      "blue",
+      "green",
+      "yellow",
+    ],
+    image: "/assets/shoes/nike-dunk-triple/nike-dunk-triple.png",
+    images: [
+      "/assets/shoes/nike-dunk-triple/nike-dunk-triple-single-2.webp",
+      "/assets/shoes/nike-dunk-triple/nike-dunk-triple-single-3.webp",
+      "/assets/shoes/nike-dunk-triple/nike-dunk-triple-single-4.webp",
+      "/assets/shoes/nike-dunk-triple/nike-dunk-triple-single-5.webp",
+      "/assets/shoes/nike-dunk-triple/nike-dunk-triple-single-6.webp",
+    ],
+    description:
+      "Created for the hardwood but taken to the streets, the Nike Dunk Low Retro returns with crisp overlays and original team color. This basketball icon channels '80s vibes with premium leather in the upper that looks good and breaks in even better. Modern footwear technology helps bring the comfort into the 21st century.",
+  },
+  {
+    id: "4",
+    name: "Nike Vomero 18",
+    gender: "men",
+    section: "shoes",
+    subcategory: "running",
+    price: 155,
+    sizes: ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10"],
+    color: [
+      "black",
+      "white",
+      "pink",
+      "gray",
+      "brown",
+      "purple",
+      "blue",
+      "green",
+      "orange",
+    ],
+    image: "/assets/shoes/nike-vomero/nike-vomero.avif",
+    images: [
+      "/assets/shoes/nike-vomero/nike-vomero-single-2.avif",
+      "/assets/shoes/nike-vomero/nike-vomero-single-3.avif",
+      "/assets/shoes/nike-vomero/nike-vomero-single-4.avif",
+      "/assets/shoes/nike-vomero/nike-vomero-single-5.avif",
+      "/assets/shoes/nike-vomero/nike-vomero-single-6.avif",
+      "/assets/shoes/nike-vomero/nike-vomero-single-7.avif",
+      "/assets/shoes/nike-vomero/nike-vomero-single-8.avif",
+    ],
+    description:
+      "Maximum cushioning in the Vomero provides a comfortable ride for everyday runs. Our softest, most cushioned ride has lightweight ZoomX foam stacked on top of responsive ReactX foam in the midsole. Plus, a redesigned traction pattern offers a smooth heel-to-toe transition.",
+  },
+
+  // Additional Men's Shoes
+  {
+    id: "5",
+    name: "Nike Air Jordan 1 Retro",
+    gender: "men",
+    section: "shoes",
+    subcategory: "jordan",
+    price: 130,
+    sizes: ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11"],
+    color: ["red", "black", "white"],
+    image:
+      "https://artwalk.vtexassets.com/arquivos/ids/556580-1200-auto?v=638635778408330000&width=1200&height=auto&aspect=true",
+    images: [
+      "https://artwalk.vtexassets.com/arquivos/ids/556580-1200-auto?v=638635778408330000&width=1200&height=auto&aspect=true",
+      "/assets/shoes/jordan-1/jordan-1-back.webp",
+      "/assets/shoes/jordan-1/jordan-1-top.webp",
+    ],
+    description:
+      "The Air Jordan 1 Retro High OG is a modern take on the classic AJ1 silhouette. Featuring the same iconic design that Michael Jordan made famous, with premium leather construction and Nike Air cushioning for comfort.",
+  },
+  {
+    id: "42",
+    name: "Nike Court Vision Low Next Nature Men's Tennis Shoes",
+    gender: "men",
+    section: "shoes",
+    subcategory: "casual",
+    price: 30,
+    sizes: ["S", "M", "L", "XL"],
+    color: ["black", "white"],
+    image: "https://imgnike-a.akamaihd.net/1920x1920/011580IDA8.jpg",
+    images: [
+      "https://imgnike-a.akamaihd.net/1920x1920/011580IDA8.jpg",
+      "/assets/shoes/nike-slides/nike-slides-top.jpg",
+    ],
+    description:
+      "The Nike Benassi Slides feature a soft foam footbed and a simple strap design for easy on-and-off wear. Perfect for the pool, beach, or just lounging around.",
+  },
+  {
+    id: "55",
+    name: "Nike Court Vision Low Next Nature Men's Tennis Shoes",
+    gender: "men",
+    section: "shoes",
+    subcategory: "casual",
+    price: 80,
+    sizes: ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11"],
+    color: ["white", "black"],
+    image: "https://imgnike-a.akamaihd.net/1920x1920/01370252A9.jpg",
+    images: [
+      "https://imgnike-a.akamaihd.net/1920x1920/01370252A9.jpg",
+      "/assets/shoes/jordan-1/jordan-1-back.webp",
+      "/assets/shoes/jordan-1/jordan-1-top.webp",
+    ],
+    description:
+      "The Air Jordan 1 Retro High OG is a modern take on the classic AJ1 silhouette. Featuring the same iconic design that Michael Jordan made famous, with premium leather construction and Nike Air cushioning for comfort.",
+  },
+  {
+    id: "6",
+    name: "Nike Benassi 'Just Do It' Print Men's Flip Flops",
+    gender: "men",
+    section: "shoes",
+    subcategory: "sandals & slides",
+    price: 30,
+    sizes: ["S", "M", "L", "XL"],
+    color: ["black"],
+    image: "https://imgnike-a.akamaihd.net/1920x1920/016319IDA4.jpg",
+    images: [
+      "https://imgnike-a.akamaihd.net/1920x1920/016319IDA4.jpg",
+      "/assets/shoes/nike-slides/nike-slides-top.jpg",
+    ],
+    description:
+      "The Nike Benassi Slides feature a soft foam footbed and a simple strap design for easy on-and-off wear. Perfect for the pool, beach, or just lounging around.",
+  },
+  {
+    id: "66",
+    name: "Nike Victori One Men's Flip Flops",
+    gender: "men",
+    section: "shoes",
+    subcategory: "sandals & slides",
+    price: 30,
+    sizes: ["S", "M", "L", "XL"],
+    color: ["black", "white"],
+    image: "https://imgnike-a.akamaihd.net/1920x1920/009351IDA7.jpg",
+    images: [
+      "https://imgnike-a.akamaihd.net/1920x1920/009351IDA7.jpg",
+      "/assets/shoes/nike-slides/nike-slides-top.jpg",
+    ],
+    description:
+      "The Nike Benassi Slides feature a soft foam footbed and a simple strap design for easy on-and-off wear. Perfect for the pool, beach, or just lounging around.",
+  },
+
+  // Men's Clothing
+  {
+    id: "7",
+    name: "Nike Club Men's Jacket",
+    gender: "men",
+    section: "clothing",
+    subcategory: "hoodies & sweatshirts",
+    price: 65,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    color: ["black", "gray", "navy"],
+    image: "https://imgnike-a.akamaihd.net/1920x1920/0587957TA1.jpg",
+    images: [
+      "https://imgnike-a.akamaihd.net/1920x1920/0587957TA1.jpg",
+      "/assets/clothing/mens-hoodie/hoodie-detail.jpg",
+    ],
+    description:
+      "The Nike Sportswear Club Fleece Hoodie is made from soft, brushed-back fleece for an easy, casual look with a comfortable feel. Kangaroo pocket provides secure storage.",
+  },
+  {
+    id: "8",
+    name: "Nike Dri-FIT Men's T-Shirt",
+    gender: "men",
+    section: "clothing",
+    subcategory: "t-shirts",
+    price: 30,
+    sizes: ["S", "M", "L", "XL"],
+    color: ["white", "black", "red", "blue"],
+    image: "https://imgnike-a.akamaihd.net/1920x1920/026537IDA4.jpg",
+    images: [
+      "https://imgnike-a.akamaihd.net/1920x1920/026537IDA4.jpg",
+      "/assets/clothing/mens-tshirt/tshirt-detail.jpg",
+    ],
+    description:
+      "The Nike Dri-FIT T-Shirt is made with sweat-wicking fabric to help keep you dry and comfortable. Regular fit for a relaxed feel during your workout or everyday wear.",
+  },
+  {
+    id: "9",
+    name: "Nike Club Knit Men's Jacket",
+    gender: "men",
+    section: "clothing",
+    subcategory: "jackets",
+    price: 110,
+    sizes: ["S", "M", "L", "XL"],
+    color: ["black", "blue", "green"],
+    image: "https://imgnike-a.akamaihd.net/1920x1920/061911IDA1.jpg",
+    images: [
+      "https://imgnike-a.akamaihd.net/1920x1920/061911IDA1.jpg",
+      "/assets/clothing/mens-jacket/jacket-detail.jpg",
+    ],
+    description:
+      "The Nike Sportswear Windrunner Jacket updates a running essential with lightweight, water-repellent fabric and reflective details. Adjustable hood and zippered pockets provide secure storage.",
+  },
+
+  // Men's Accessories
+  {
+    id: "10",
+    name: "Nike Heritage Backpack",
+    gender: "men",
+    section: "accessories",
+    subcategory: "bags",
+    price: 55,
+    sizes: ["One Size"],
+    color: ["black", "gray", "navy"],
+    image: "https://imgnike-a.akamaihd.net/1920x1920/012822IDA9.jpg",
+    images: [
+      "https://imgnike-a.akamaihd.net/1920x1920/012822IDA9.jpg",
+      "/assets/accessories/backpack/backpack-open.jpg",
+    ],
+    description:
+      "The Nike Heritage Backpack is made with durable, water-resistant fabric and features a padded laptop sleeve, multiple compartments, and adjustable shoulder straps for comfortable carrying.",
+  },
+  {
+    id: "11",
+    name: "Nike Sportswear Heritage86 Cap",
+    gender: "men",
+    section: "accessories",
+    subcategory: "hats",
+    price: 25,
+    sizes: ["S/M", "L/XL"],
+    color: ["black", "white", "navy"],
+    image:
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/72a78b4f-dd3e-49a7-9005-cf55b30f8fb3/U+NSW+DF+H86+METAL+SWOOSH+CAP.png",
+    images: [
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/72a78b4f-dd3e-49a7-9005-cf55b30f8fb3/U+NSW+DF+H86+METAL+SWOOSH+CAP.png",
+      "/assets/accessories/hat/hat-back.jpg",
+    ],
+    description:
+      "The Nike Sportswear Heritage86 Hat features a structured fit, curved visor, and an adjustable strap for a comfortable, customized fit. The embroidered Swoosh design adds classic Nike style.",
+  },
+  {
+    id: "12",
+    name: "Nike Everyday Plus Socks (3 Pairs)",
+    gender: "men",
+    section: "accessories",
+    subcategory: "socks",
+    price: 15,
+    sizes: ["S", "M", "L"],
+    color: ["white", "black", "gray"],
+    image: "https://imgnike-a.akamaihd.net/1920x1920/022267IDA4.jpg",
+    images: [
+      "https://imgnike-a.akamaihd.net/1920x1920/022267IDA4.jpg",
+      "/assets/accessories/socks/socks-detail.jpg",
+    ],
+    description:
+      "The Nike Everyday Cushioned Crew Socks provide lightweight cushioning and breathability where you need it most. Dri-FIT technology helps keep feet dry, while the arch band ensures a secure fit.",
+  },
+
+  // Women's Shoes
+  {
+    id: "13",
+    name: "Nike Air Zoom Pegasus 40",
+    gender: "women",
+    section: "shoes",
+    subcategory: "running",
+    price: 130,
+    sizes: ["5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10"],
+    color: ["white", "pink", "black", "blue"],
+    image: "/assets/shoes/womens-pegasus/pegasus-main.jpg",
+    images: [
+      "/assets/shoes/womens-pegasus/pegasus-side.jpg",
+      "/assets/shoes/womens-pegasus/pegasus-back.jpg",
+    ],
+    description:
+      "The Nike Air Zoom Pegasus 40 offers a smooth, responsive ride for your daily runs. Featuring Zoom Air cushioning and a breathable mesh upper for lightweight comfort mile after mile.",
+  },
+  {
+    id: "14",
+    name: "Nike Metcon 8",
+    gender: "women",
+    section: "shoes",
+    subcategory: "training",
+    price: 140,
+    sizes: ["5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10"],
+    color: ["black", "white", "pink", "purple"],
+    image: "/assets/shoes/womens-metcon/metcon-main.jpg",
+    images: [
+      "/assets/shoes/womens-metcon/metcon-side.jpg",
+      "/assets/shoes/womens-metcon/metcon-back.jpg",
+    ],
+    description:
+      "The Nike Metcon 8 is the gold standard for weight training and HIIT workouts. A stable, flat heel keeps you steady during lifts, while flexible traction helps with dynamic movements.",
+  },
+  {
+    id: "15",
+    name: "Nike Offcourt Slides",
+    gender: "women",
+    section: "shoes",
+    subcategory: "sandals",
+    price: 35,
+    sizes: ["S", "M", "L"],
+    color: ["white", "black", "pink"],
+    image: "/assets/shoes/womens-slides/slides-main.jpg",
+    images: [
+      "/assets/shoes/womens-slides/slides-side.jpg",
+      "/assets/shoes/womens-slides/slides-top.jpg",
+    ],
+    description:
+      "The Nike Offcourt Slides feature a soft, cushioned footbed and a sporty design. Easy to slip on and off, perfect for post-workout recovery or casual wear.",
+  },
+
+  // Women's Clothing
+  {
+    id: "16",
+    name: "Nike Swoosh Sports Bra",
+    gender: "women",
+    section: "clothing",
+    subcategory: "sports bras",
+    price: 45,
+    sizes: ["XS", "S", "M", "L", "XL"],
+    color: ["black", "white", "pink", "blue"],
+    image: "/assets/clothing/womens-bra/bra-main.jpg",
+    images: [
+      "/assets/clothing/womens-bra/bra-back.jpg",
+      "/assets/clothing/womens-bra/bra-detail.jpg",
+    ],
+    description:
+      "The Nike Swoosh Sports Bra offers medium support with a comfortable, lightweight feel. Breathable fabric and a racerback design provide freedom of movement during workouts.",
+  },
+  {
+    id: "17",
+    name: "Nike One Luxe Leggings",
+    gender: "women",
+    section: "clothing",
+    subcategory: "leggings",
+    price: 85,
+    sizes: ["XS", "S", "M", "L", "XL"],
+    color: ["black", "gray", "blue", "purple"],
+    image: "/assets/clothing/womens-leggings/leggings-main.jpg",
+    images: [
+      "/assets/clothing/womens-leggings/leggings-back.jpg",
+      "/assets/clothing/womens-leggings/leggings-detail.jpg",
+    ],
+    description:
+      "The Nike One Luxe Leggings feature a high-rise waist and soft, stretchy fabric for a flattering fit. Side pockets provide convenient storage for small essentials.",
+  },
+  {
+    id: "18",
+    name: "Nike Sportswear Tech Fleece Jacket",
+    gender: "women",
+    section: "clothing",
+    subcategory: "jackets",
+    price: 120,
+    sizes: ["XS", "S", "M", "L", "XL"],
+    color: ["black", "gray", "pink"],
+    image: "/assets/clothing/womens-jacket/jacket-main.jpg",
+    images: [
+      "/assets/clothing/womens-jacket/jacket-back.jpg",
+      "/assets/clothing/womens-jacket/jacket-detail.jpg",
+    ],
+    description:
+      "The Nike Sportswear Tech Fleece Jacket provides lightweight warmth with a modern, streamlined look. Made from innovative Tech Fleece fabric that's warm without the bulk.",
+  },
+
+  // Women's Accessories
+  {
+    id: "19",
+    name: "Nike Studio Waist Pack",
+    gender: "women",
+    section: "accessories",
+    subcategory: "bags",
+    price: 40,
+    sizes: ["One Size"],
+    color: ["black", "white", "pink"],
+    image: "/assets/accessories/womens-bag/bag-main.jpg",
+    images: [
+      "/assets/accessories/womens-bag/bag-open.jpg",
+      "/assets/accessories/womens-bag/bag-side.jpg",
+    ],
+    description:
+      "The Nike Studio Waist Pack is a compact, hands-free bag with adjustable straps for waist or crossbody wear. Multiple compartments keep your essentials organized on the go.",
+  },
+  {
+    id: "20",
+    name: "Nike Heritage86 Women's Hat",
+    gender: "women",
+    section: "accessories",
+    subcategory: "hats",
+    price: 25,
+    sizes: ["S/M", "L/XL"],
+    color: ["black", "white", "pink"],
+    image: "/assets/accessories/womens-hat/hat-main.jpg",
+    images: [
+      "/assets/accessories/womens-hat/hat-side.jpg",
+      "/assets/accessories/womens-hat/hat-back.jpg",
+    ],
+    description:
+      "The Nike Heritage86 Women's Hat features a structured fit and curved visor for sun protection. Adjustable strap ensures a comfortable, customized fit.",
+  },
+  {
+    id: "21",
+    name: "Nike Everyday Plus Cushioned Ankle Socks",
+    gender: "women",
+    section: "accessories",
+    subcategory: "socks",
+    price: 15,
+    sizes: ["S", "M", "L"],
+    color: ["white", "black", "gray", "pink"],
+    image: "/assets/accessories/womens-socks/socks-main.jpg",
+    images: [
+      "/assets/accessories/womens-socks/socks-pair.jpg",
+      "/assets/accessories/womens-socks/socks-detail.jpg",
+    ],
+    description:
+      "The Nike Everyday Plus Cushioned Ankle Socks provide lightweight cushioning and breathability. Dri-FIT technology helps keep feet dry, while the arch band ensures a secure fit.",
+  },
+
+  // Kids' Shoes
+  {
+    id: "22",
+    name: "Nike Revolution 6 Next Nature",
+    gender: "kids",
+    section: "shoes",
+    subcategory: "running",
+    price: 55,
+    sizes: [
+      "10.5C",
+      "11C",
+      "11.5C",
+      "12C",
+      "12.5C",
+      "13C",
+      "13.5C",
+      "1Y",
+      "2Y",
+      "3Y",
+      "4Y",
+    ],
+    color: ["black", "white", "blue", "pink"],
+    image: "/assets/shoes/kids-running/running-main.jpg",
+    images: [
+      "/assets/shoes/kids-running/running-side.jpg",
+      "/assets/shoes/kids-running/running-back.jpg",
+    ],
+    description:
+      "The Nike Revolution 6 Next Nature provides lightweight cushioning for young runners. Made with at least 20% recycled materials by weight, the soft foam midsole delivers comfort with every step.",
+  },
+  {
+    id: "23",
+    name: "Nike Air Force 1 LV8",
+    gender: "kids",
+    section: "shoes",
+    subcategory: "casual",
+    price: 75,
+    sizes: [
+      "10.5C",
+      "11C",
+      "11.5C",
+      "12C",
+      "12.5C",
+      "13C",
+      "13.5C",
+      "1Y",
+      "2Y",
+      "3Y",
+      "4Y",
+    ],
+    color: ["white", "black", "red", "blue"],
+    image: "/assets/shoes/kids-casual/casual-main.jpg",
+    images: [
+      "/assets/shoes/kids-casual/casual-side.jpg",
+      "/assets/shoes/kids-casual/casual-back.jpg",
+    ],
+    description:
+      "The Nike Air Force 1 LV8 brings the classic AF1 style to kids' sizes. Durable leather upper and Air cushioning provide all-day comfort for active kids.",
+  },
+
+  // Kids' Clothing
+  {
+    id: "24",
+    name: "Nike Sportswear Kids' T-Shirt",
+    gender: "kids",
+    section: "clothing",
+    subcategory: "t-shirts",
+    price: 25,
+    sizes: ["XS", "S", "M", "L"],
+    color: ["white", "black", "blue", "red"],
+    image: "/assets/clothing/kids-tshirt/tshirt-main.jpg",
+    images: [
+      "/assets/clothing/kids-tshirt/tshirt-back.jpg",
+      "/assets/clothing/kids-tshirt/tshirt-detail.jpg",
+    ],
+    description:
+      "The Nike Sportswear Kids' T-Shirt is made with soft cotton for all-day comfort. Classic Nike logo graphic adds sporty style for young athletes.",
+  },
+  {
+    id: "25",
+    name: "Nike Sportswear Kids' Jacket",
+    gender: "kids",
+    section: "clothing",
+    subcategory: "jackets",
+    price: 50,
+    sizes: ["XS", "S", "M", "L"],
+    color: ["black", "blue", "red"],
+    image: "/assets/clothing/kids-jacket/jacket-main.jpg",
+    images: [
+      "/assets/clothing/kids-jacket/jacket-back.jpg",
+      "/assets/clothing/kids-jacket/jacket-detail.jpg",
+    ],
+    description:
+      "The Nike Sportswear Kids' Jacket is water-resistant to help keep young athletes dry. Adjustable hood and zippered pockets provide protection from the elements.",
+  },
+
+  // Kids' Accessories
+  {
+    id: "26",
+    name: "Nike Kids' Backpack",
+    gender: "kids",
+    section: "accessories",
+    subcategory: "backpacks",
+    price: 35,
+    sizes: ["One Size"],
+    color: ["black", "blue", "pink"],
+    image: "/assets/accessories/kids-backpack/backpack-main.jpg",
+    images: [
+      "/assets/accessories/kids-backpack/backpack-side.jpg",
+      "/assets/accessories/kids-backpack/backpack-open.jpg",
+    ],
+    description:
+      "The Nike Kids' Backpack is sized just right for young students. Features a main compartment, front pocket, and adjustable shoulder straps for a comfortable fit.",
+  },
+  {
+    id: "27",
+    name: "Nike Sportswear Kids' Hat",
+    gender: "kids",
+    section: "accessories",
+    subcategory: "hats",
+    price: 18,
+    sizes: ["S", "M"],
+    color: ["black", "blue", "pink"],
+    image: "/assets/accessories/kids-hat/hat-main.jpg",
+    images: [
+      "/assets/accessories/kids-hat/hat-side.jpg",
+      "/assets/accessories/kids-hat/hat-back.jpg",
+    ],
+    description:
+      "The Nike Sportswear Kids' Hat features an adjustable strap for a customized fit. Breathable fabric helps keep young athletes cool during play.",
+  },
+];
+
+export default products;
