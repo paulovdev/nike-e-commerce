@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
             width={1200}
             height={1200}
             alt={name}
-            className=" h-[400px] object-cover border border-border-100 rounded-[.25rem]"
+            className=" h-[400px] object-cover border border-border-100 rounded-[.25rem] max-ds:h-[300px] max-lg:h-[275px] max-md:h-[225px]"
             onClick={() => router.push(`/product/${id}`)}
           />
         </motion.figure>
