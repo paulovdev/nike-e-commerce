@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { MdCheck, MdOutlineKeyboardArrowDown } from "react-icons/md";
-import useFilterStore from "@/store/filterStore";
-import { colorsData, priceData, sizes, menustructure } from "@/data/filterData";
-import useFavoritesStore from "@/store/favoritesStore.js";
 
-const toggleArrayValue = (arr, value) =>
-  arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
+import { colorsData, priceData, sizes, menustructure } from "@/data/filterData";
+import useFavoritesStore from "@/store/favoritesStore";
+import useFilterStore from "@/store/filterStore";
 
 const ProductFilters = () => {
   const {
@@ -22,25 +20,47 @@ const ProductFilters = () => {
     price,
     setPrice,
   } = useFilterStore();
+
   const { favorites } = useFavoritesStore();
 
   const [open, setOpen] = useState({
     color: true,
+    size: false,
     gender: true,
     section: true,
     subcategory: false,
     price: false,
-    size: false,
   });
 
-  const toggleOpen = (key) =>
-    setOpen((prev) => ({ ...prev, [key]: !prev[key] }));
+  const selectedGender = useMemo(
+    () => new Set(gender.map((g) => g.toLowerCase())),
+    [gender]
+  );
+  const selectedSection = useMemo(
+    () => new Set(section.map((s) => s.toLowerCase())),
+    [section]
+  );
+  const selectedSubcategory = useMemo(
+    () => new Set(subcategory.map((s) => s.toLowerCase())),
+    [subcategory]
+  );
+  const selectedColor = useMemo(
+    () => new Set(color.map((c) => c.toLowerCase())),
+    [color]
+  );
+  const selectedSize = useMemo(() => new Set(size), [size]);
 
-  const selectedGender = new Set(gender.map((g) => g.toLowerCase()));
-  const selectedSection = new Set(section.map((s) => s.toLowerCase()));
-  const selectedSubcategory = new Set(subcategory.map((s) => s.toLowerCase()));
-  const selectedColor = new Set(color.map((c) => c.toLowerCase()));
-  const selectedSize = new Set(size);
+  const genderOptions = useMemo(
+    () => menustructure.map((group) => group.gender),
+    []
+  );
+
+  const toggleOpen = (key) => {
+    setOpen((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const toggleArrayValue = (arr, value) =>
+    arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
 
   const handleToggle = (current, value, setter, single = false) => {
     const lowerValue = value.toLowerCase();
@@ -48,7 +68,7 @@ const ProductFilters = () => {
 
     const updated = single
       ? alreadySelected
-        ? [] // ← desmarcar se já estava selecionado
+        ? []
         : [lowerValue]
       : toggleArrayValue(current, lowerValue);
 
@@ -61,7 +81,6 @@ const ProductFilters = () => {
 
     const isSame = currentMin === min && currentMax === max;
 
-    // Se clicou no mesmo valor → volta para "All Prices"
     if (isSame) {
       setPrice([0, 9999]);
     } else {
@@ -69,36 +88,36 @@ const ProductFilters = () => {
     }
   };
 
-  // Dinâmico: genders, sections e subcategories
-  const genderOptions = menustructure.map((group) => group.gender);
+  const { sectionOptions, subcategoryOptions } = useMemo(() => {
+    const sectionSet = new Set();
+    const subcatSet = new Set();
 
-  const sectionOptionsSet = new Set();
-  const subcategoryOptionsSet = new Set();
-
-  menustructure.forEach((group) => {
-    if (gender.length === 0 || selectedGender.has(group.gender)) {
-      const genderSections = group.sections;
-      for (const [sectionName, subcats] of Object.entries(genderSections)) {
-        sectionOptionsSet.add(sectionName);
-
-        if (gender.length > 0) {
-          subcats.forEach((subcat) => subcategoryOptionsSet.add(subcat));
-        }
+    menustructure.forEach((group) => {
+      const groupGender = group.gender.toLowerCase();
+      if (gender.length === 0 || selectedGender.has(groupGender)) {
+        Object.entries(group.sections).forEach(([sectionName, subcats]) => {
+          sectionSet.add(sectionName);
+          if (gender.length > 0) {
+            subcats.forEach((subcat) => subcatSet.add(subcat));
+          }
+        });
       }
-    }
-  });
+    });
 
-  const sectionOptions = Array.from(sectionOptionsSet);
-  const subcategoryOptions = Array.from(subcategoryOptionsSet);
+    return {
+      sectionOptions: Array.from(sectionSet),
+      subcategoryOptions: Array.from(subcatSet),
+    };
+  }, [gender, selectedGender]);
 
   useEffect(() => {
     if (gender.length === 0) {
       setSubcategory([]);
     }
-  }, [gender]);
+  }, [gender, setSubcategory]);
 
   return (
-    <div className="pr-4 overflow-y-scroll h-screen flex flex-col max-lg:overflow-y-hidden">
+    <div className="pr-4 overflow-y-scroll h-[calc(100vh_-_79px)] flex flex-col max-lg:overflow-y-hidden">
       <div className="relative">
         {/* Favorites */}
         <div className="pt-4 pb-8">
@@ -187,18 +206,18 @@ const ProductFilters = () => {
             />
           </div>
           {open.size && (
-            <div className="mt-4 grid grid-cols-3 gap-2">
+            <div className="mt-4 grid grid-cols-3 gap-1">
               {sizes.map((s) => {
                 const isActive = selectedSize.has(s.toLowerCase());
                 return (
                   <button
                     key={s}
                     onClick={() => handleToggle(size, s, setSize)}
-                    className={`border rounded-[0.25rem] py-3 text-base flex items-center justify-center cursor-pointer transition-all duration-200 ${
+                    className={`border rounded-[0.25rem] py-2 text-base flex items-center justify-center cursor-pointer transition-all duration-200 ${
                       isActive ? "border-black-100" : "border-border-100"
                     }`}
                   >
-                    <p className="text-md font-bold">{s}</p>
+                    <p className="text-md font-medium">{s}</p>
                   </button>
                 );
               })}
@@ -206,6 +225,7 @@ const ProductFilters = () => {
           )}
         </div>
         <div className="w-full h-[0.5px] bg-border-100 "></div>
+
         {/* Gender */}
         <div className="py-4">
           <div
@@ -420,6 +440,7 @@ const ProductFilters = () => {
             </div>
           )}
         </div>
+
         <div className="w-full h-[0.5px] bg-border-100 "></div>
       </div>
     </div>

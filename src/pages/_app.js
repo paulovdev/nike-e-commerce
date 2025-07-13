@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import Nav from "@/components/Nav";
 import PreLoader from "@/pre-loader/pre-loader";
+import Footer from "@/components/Footer";
 
 export default function App({ Component, pageProps, router }) {
   return (
@@ -8,6 +9,7 @@ export default function App({ Component, pageProps, router }) {
       <PreLoader />
       <Nav />
       <Component {...pageProps} key={router.asPath} />
+      <Footer />
     </>
   );
 }

@@ -3,19 +3,17 @@ export const opacityAnimation = {
   animate: {
     opacity: 1,
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
-      delay: 0.05,
     },
   },
   exit: {
     opacity: 0,
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
-      delay: 0.05,
     },
   },
   animateCustom: (custom) => ({
@@ -41,7 +39,7 @@ export const textSlideAnimation = {
   animate: (i) => ({
     y: "0%",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.76, 0, 0.24, 1],
       delay: i,
     },
@@ -49,7 +47,7 @@ export const textSlideAnimation = {
   exit: (i) => ({
     y: "100%",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.76, 0, 0.24, 1],
       delay: i,
     },
@@ -61,7 +59,7 @@ export const clipAnimation = {
   animate: (custom) => ({
     clipPath: "inset(0% 0% 0% 0%)",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
       delay: custom,
@@ -70,7 +68,7 @@ export const clipAnimation = {
   exit: {
     clipPath: "inset( 0% 0% 100% 0%)",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
     },
@@ -117,7 +115,7 @@ export const menuAnimation = {
   overlayOpen: {
     opacity: 1,
     transition: {
-      duration: 0.75,
+      duration: 0.4,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
     },
@@ -125,7 +123,7 @@ export const menuAnimation = {
   overlayClosed: {
     opacity: 0,
     transition: {
-      duration: 0.75,
+      duration: 0.4,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
     },
@@ -133,7 +131,7 @@ export const menuAnimation = {
   menuOpen: {
     right: "0%",
     transition: {
-      duration: 0.75,
+      duration: 0.4,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
     },
@@ -141,8 +139,8 @@ export const menuAnimation = {
   menuClosed: {
     right: "100%",
     transition: {
-      duration: 0.75,
-      delay: 0.5,
+      duration: 0.4,
+
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
     },
@@ -153,7 +151,7 @@ export const cartAnimation = {
   overlayOpen: {
     opacity: 1,
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       delay: 0.3,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
@@ -162,7 +160,7 @@ export const cartAnimation = {
   overlayClosed: {
     opacity: 0,
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       delay: 0.3,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
@@ -171,7 +169,7 @@ export const cartAnimation = {
   cartOpen: {
     left: "0",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
     },
@@ -179,7 +177,7 @@ export const cartAnimation = {
   cartClosed: {
     left: "100%",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       delay: 0.3,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
@@ -191,7 +189,7 @@ export const filterAnimation = {
   overlayOpen: {
     opacity: 1,
     transition: {
-      duration: 0.75,
+      duration: 0.4,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
     },
@@ -199,7 +197,7 @@ export const filterAnimation = {
   overlayClosed: {
     opacity: 0,
     transition: {
-      duration: 0.75,
+      duration: 0.4,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
     },
@@ -207,7 +205,7 @@ export const filterAnimation = {
   menuOpen: {
     right: "0%",
     transition: {
-      duration: 0.75,
+      duration: 0.4,
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
     },
@@ -215,8 +213,8 @@ export const filterAnimation = {
   menuClosed: {
     right: "100%",
     transition: {
-      duration: 0.75,
-      delay: 0.5,
+      duration: 0.4,
+
       type: "tween",
       ease: [0.76, 0, 0.24, 1],
     },

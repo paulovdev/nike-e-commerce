@@ -1,7 +1,7 @@
-import useFavoritesStore from "@/store/favoritesStore.js";
 import FavoriteItem from "@/components/favoritesComponents/FavoriteItem";
 import EmptyFavorites from "@/components/favoritesComponents/EmptyFavorites";
 import FavoritesSidebar from "@/components/favoritesComponents/FavoritesSidebar";
+import useFavoritesStore from "@/store/favoritesStore";
 
 const FavoritesPage = () => {
   const favorites = useFavoritesStore((state) => state.favorites);

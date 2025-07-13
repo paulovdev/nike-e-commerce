@@ -1,20 +1,17 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import useUIStore from "@/store/uiStore";
 import useFilterStore from "@/store/filterStore";
 import { useRouter } from "next/router";
 import { menuAnimation, textSlideAnimation } from "@/animations/animations";
 import { SiNike } from "react-icons/si";
 import { X } from "lucide-react";
-
 import { menustructure } from "@/data/filterData";
 import MobileMenuBack from "./mobileMenuComponents/MobileMenuBack";
 import MobileMenuVideo from "./mobileMenuComponents/MobileMenuVideo";
 import Overlay from "./Overlay";
 
-const MobileMenu = () => {
+const MobileMenu = ({ toggleMobileMenu, setToggleMobileMenu }) => {
   const router = useRouter();
-  const { closeMobileMenu, isMobileMenuOpen } = useUIStore();
   const { setGender, setSection, setSubcategory } = useFilterStore();
 
   const [step, setStep] = useState("gender");
@@ -45,7 +42,7 @@ const MobileMenu = () => {
     setGender([gender]);
     setSection([section]);
     setSubcategory(subcategory ? [subcategory] : []);
-    closeMobileMenu();
+    setToggleMobileMenu(false);
     router.push("/shop");
   };
 
@@ -62,13 +59,13 @@ const MobileMenu = () => {
         className="relative size-full bg-white-100 z-50 select-none flex-[1.5] overflow-y-scroll flex flex-col max-h-screen max-lg:flex-[3]"
         variants={menuAnimation}
         initial="menuClosed"
-        animate={isMobileMenuOpen && "menuOpen"}
+        animate={toggleMobileMenu && "menuOpen"}
         exit="menuClosed"
       >
         <div className="px-5 py-3 flex items-center justify-end">
           <div
             className="flex items-center gap-2 group cursor-pointer"
-            onClick={closeMobileMenu}
+            onClick={() => setToggleMobileMenu(false)}
           >
             <p className="text-black-100 text-sm font-bold uppercase">CLOSE</p>
             <X
@@ -87,7 +84,7 @@ const MobileMenu = () => {
               className="mb-4 overflow-hidden group"
               onClick={() => {
                 router.push("/");
-                closeMobileMenu();
+                setToggleMobileMenu(false);
               }}
             >
               <motion.div
@@ -210,7 +207,7 @@ const MobileMenu = () => {
       <div className="relative size-full flex-[1.5] max-md:hidden" />
 
       <Overlay
-        onClick={closeMobileMenu}
+        onClick={() => setToggleMobileMenu(false)}
         variants={menuAnimation}
         initial="overlayClosed"
         animate="overlayOpen"

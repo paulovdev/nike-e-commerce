@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Trash } from "lucide-react";
-import useFavoritesStore from "@/store/favoritesStore.js";
 import { opacityAnimation } from "@/animations/animations";
 import { FaHeart } from "react-icons/fa";
+import useFavoritesStore from "@/store/favoritesStore";
 
 const FavoriteItem = ({ item }) => {
   const { id, name, price, gender, image } = item;

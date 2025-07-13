@@ -1,11 +1,11 @@
-import useFavoritesStore from "@/store/favoritesStore.js";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { textSlideAnimation } from "@/animations/animations";
 import { useRouter } from "next/router";
+import useFavoritesStore from "@/store/favoritesStore";
 
-const ProductCard = ({ product }) => {
+const ItemCard = ({ product }) => {
   const { id, name, price, image, section, subcategory } = product;
   const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
   const isFavorite = useFavoritesStore((state) => state.isFavorite(id));
@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
           onClick={() => toggleFavorite(product)}
         >
           {isFavorite ? (
-            <FaHeart size={18} className="text-red-500 " />
+            <FaHeart size={18} className="text-red-500" />
           ) : (
             <FaRegHeart size={18} className="text-black-100" />
           )}
@@ -81,4 +81,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default ItemCard;

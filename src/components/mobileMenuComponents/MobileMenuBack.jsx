@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { MdKeyboardReturn } from "react-icons/md";
 import { textSlideAnimation } from "@/animations/animations";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 const MobileMenuBack = ({ handleBack }) => {
   return (
@@ -15,8 +15,8 @@ const MobileMenuBack = ({ handleBack }) => {
         aria-label="Go back"
         className="w-full overflow-hidden flex items-center gap-2"
       >
-        <MdKeyboardReturn size={24} className="text-black-100" />
-        <p className="text-black-100 text-base font-bold uppercase">BACK</p>
+        <IoIosArrowRoundBack size={24} className="text-black-100" />
+        <p className="text-black-100 text-base font-bold">Back</p>
       </motion.button>
     </div>
   );
